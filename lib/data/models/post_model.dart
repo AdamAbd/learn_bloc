@@ -1,12 +1,14 @@
-class Post {
+import 'package:learn_bloc/data/entities/post_entity.dart';
+
+class PostModel {
   int? userId;
   int? id;
   String? title;
   String? body;
 
-  Post({this.userId, this.id, this.title, this.body});
+  PostModel({this.userId, this.id, this.title, this.body});
 
-  factory Post.fromJson(Map<String, dynamic> json) => Post(
+  factory PostModel.fromJson(Map<String, dynamic> json) => PostModel(
         userId: json['userId'] as int?,
         id: json['id'] as int?,
         title: json['title'] as String?,
@@ -19,4 +21,11 @@ class Post {
         'title': title,
         'body': body,
       };
+
+  PostEntity toPostEntity() => PostEntity(
+        id: id,
+        userId: userId,
+        body: body,
+        title: title,
+      );
 }

@@ -16,11 +16,13 @@ class PostCubit extends Cubit<PostState> {
 
     final response = await postRepository!.getAllPost();
 
-    response!.fold(
-      print('initialValue'),
-      (previousValue, element) async {
-        emit(PostLoaded(postEntity: PostEntity(id: element.id)));
-      },
-    );
+    // response!.fold(
+    //   print('initialValue'),
+    //   (previousValue, element) async {
+    //     emit(PostLoaded(postEntity: PostEntity(id: element.id)));
+    //   },
+    // );
+
+    emit(PostLoaded(postEntity: response));
   }
 }

@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
-import 'package:learn_bloc/data/models/post.dart';
+import 'package:learn_bloc/data/models/post_model.dart';
 
 class PostDataProvider {
-  Future<List<Post>?> getPost() async {
+  Future<List<PostModel>?> getPost() async {
     var dio = Dio();
 
     var response = await dio.get('https://jsonplaceholder.typicode.com/posts');
@@ -11,12 +11,11 @@ class PostDataProvider {
 
     if (response.statusCode == 200) {
       var json = response.data;
-      // return List<Post>.from(
-      //   (json as List).map(
-      //     (e) => Post.fromJson(e as Map<String, dynamic>),
-      //   ),
-      // );
-      return json;
+      return List<PostModel>.from(
+        (json as List).map(
+          (e) => PostModel.fromJson(e as Map<String, dynamic>),
+        ),
+      );
     }
   }
 }

@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:learn_bloc/business_logic/post_cubit.dart';
 import 'package:learn_bloc/data/dataproviders/post_dataprovider.dart';
-import 'package:learn_bloc/data/models/post.dart';
+import 'package:learn_bloc/data/models/post_model.dart';
+import 'package:learn_bloc/data/respositories/post_repository.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +15,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<PostCubit>(
-      create: (context) => PostCubit(),
+      create: (context) =>
+          PostCubit(postRepository: PostRepository(PostDataProvider()))..post(),
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
@@ -61,12 +63,18 @@ class _MyHomePageState extends State<MyHomePage> {
       body: BlocBuilder<PostCubit, PostState>(
         builder: (context, state) {
           print('Ini state $state');
-          return ListView.builder(
-            itemCount: 10,
-            itemBuilder: (context, index) {
-              return const Text('Hallo');
-            },
-          );
+          if (state is PostLoaded) {
+            return ListView.builder(
+              itemCount: state.postEntity!.length,
+              itemBuilder: (context, index) {
+                final data = state.postEntity![index];
+
+                return Text('${data.title}');
+              },
+            );
+          } else {
+            return const Center(child: CircularProgressIndicator());
+          }
         },
       ),
 
