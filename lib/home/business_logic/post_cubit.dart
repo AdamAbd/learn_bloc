@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:learn_bloc/data/entities/post_entity.dart';
-import 'package:learn_bloc/data/respositories/post_repository.dart';
+import 'package:learn_bloc/home/data/entities/post_entity.dart';
+import 'package:learn_bloc/home/data/respositories/post_repository.dart';
 import 'package:meta/meta.dart';
 
 part 'post_state.dart';

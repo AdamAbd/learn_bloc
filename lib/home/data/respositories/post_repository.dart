@@ -1,6 +1,5 @@
-import 'package:learn_bloc/data/dataproviders/post_dataprovider.dart';
-import 'package:learn_bloc/data/entities/post_entity.dart';
-import 'package:learn_bloc/data/models/post_model.dart';
+import 'package:learn_bloc/home/data/dataproviders/post_dataprovider.dart';
+import 'package:learn_bloc/home/data/entities/post_entity.dart';
 
 class PostRepository {
   final PostDataProvider _postDataProvider;

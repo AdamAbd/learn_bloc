@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:learn_bloc/data/models/post_model.dart';
+import 'package:learn_bloc/home/data/models/post_model.dart';
 
 class PostDataProvider {
   Future<List<PostModel>?> getPost() async {

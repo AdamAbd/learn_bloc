@@ -1,4 +1,4 @@
-import 'package:learn_bloc/data/entities/post_entity.dart';
+import 'package:learn_bloc/home/data/entities/post_entity.dart';
 
 class PostModel {
   int? userId;
