@@ -1,16 +1,25 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:learn_bloc/cubit/counter_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:learn_bloc/cubit/internet_cubit.dart';
 import 'package:learn_bloc/cubit/setting_cubit.dart';
-import 'package:learn_bloc/presentation/pages/home_screen.dart';
 import 'package:learn_bloc/presentation/router/app_router.dart';
+import 'package:path_provider/path_provider.dart';
 
-void main() {
-  runApp(MyApp(
-    connectivity: Connectivity(),
-  ));
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  final storage = await HydratedStorage.build(
+    storageDirectory: await getApplicationDocumentsDirectory(),
+  );
+  HydratedBlocOverrides.runZoned(
+    () => runApp(MyApp(
+      connectivity: Connectivity(),
+    )),
+    storage: storage,
+  );
 }
 
 class MyApp extends StatelessWidget {
