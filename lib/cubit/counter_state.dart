@@ -27,4 +27,8 @@ class CounterState {
 
   factory CounterState.fromJson(String source) =>
       CounterState.fromMap(json.decode(source));
+
+  @override
+  String toString() =>
+      'Hallo CounterState(counterValue: $counterValue, wasIncremented: $wasIncremented)';
 }

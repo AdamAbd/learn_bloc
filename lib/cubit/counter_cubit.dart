@@ -30,4 +30,11 @@ class CounterCubit extends Cubit<CounterState> with HydratedMixin {
     // throw UnimplementedError();
     return state.toMap();
   }
+
+  @override
+  void onChange(Change<CounterState> change) {
+    // TODO: implement onChange
+    print(change);
+    super.onChange(change);
+  }
 }
