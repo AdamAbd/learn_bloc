@@ -7,8 +7,10 @@ import 'package:learn_bloc/home/presentation/screens/home_screen.dart';
 import 'package:learn_bloc/home_detail/business_logic/post_detail_cubit.dart';
 import 'package:learn_bloc/home_detail/data/dataproviders/post_dataprovider.dart';
 import 'package:learn_bloc/home_detail/data/respositories/post_detail_repository.dart';
+import 'locator.dart' as locator;
 
 void main() {
+  locator.init();
   runApp(const MyApp());
 }
 
@@ -20,13 +22,12 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<PostCubit>(
-          create: (context) =>
-              PostCubit(postRepository: PostRepository(PostDataProvider()))
-                ..post(),
+          create: (context) => locator.sl()..post(),
         ),
         BlocProvider<PostDetailCubit>(
-          create: (context) => PostDetailCubit(
-              postDetailRepository: PostDetailRepository(PostDetailProvider())),
+          create: (context) => locator.sl(),
+          // PostDetailCubit(
+          //     postDetailRepository: PostDetailRepository(PostDetailProvider())),
         ),
       ],
       child: MaterialApp(

@@ -50,13 +50,16 @@ class _MyHomePageState extends State<MyHomePage> {
                           builder: (context) => HomeDetailPage(id: data.id!),
                         ),
                       )),
-                  child: Text(
-                    data.title!.replaceFirst(
-                        data.title![0], data.title![0].toUpperCase()),
-                    // .split(' ')
-                    // .map((e) => e.replaceFirst(e[0], e[0].toUpperCase()))
-                    // .join(' '),
-                    style: const TextStyle(fontSize: 24),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      data.title!.replaceFirst(
+                          data.title![0], data.title![0].toUpperCase()),
+                      // .split(' ')
+                      // .map((e) => e.replaceFirst(e[0], e[0].toUpperCase()))
+                      // .join(' '),
+                      style: const TextStyle(fontSize: 24),
+                    ),
                   ),
                 );
               },

@@ -2,12 +2,12 @@ import 'package:dio/dio.dart';
 import 'package:learn_bloc/home/data/models/post_model.dart';
 
 class PostDataProvider {
+  final Dio dio;
+
+  PostDataProvider(this.dio);
+
   Future<List<PostModel>?> getPost() async {
-    var dio = Dio();
-
     var response = await dio.get('https://jsonplaceholder.typicode.com/posts');
-
-    print('Ini dari Dio: ${response.data}');
 
     if (response.statusCode == 200) {
       var json = response.data;
