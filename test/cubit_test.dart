@@ -1,6 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:learn_bloc/home/business_logic/post_cubit.dart';
-import 'package:learn_bloc/home/data/entities/post_entity.dart';
+import 'package:learn_bloc/feature/home/business_logic/post_cubit.dart';
+import 'package:learn_bloc/feature/home/data/entities/post_entity.dart';
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 

@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:learn_bloc/home/business_logic/post_cubit.dart';
-import 'package:learn_bloc/home/data/dataproviders/post_dataprovider.dart';
-import 'package:learn_bloc/home/data/respositories/post_repository.dart';
-import 'package:learn_bloc/home/presentation/screens/home_screen.dart';
-import 'package:learn_bloc/home_detail/business_logic/post_detail_cubit.dart';
-import 'package:learn_bloc/home_detail/data/dataproviders/post_dataprovider.dart';
-import 'package:learn_bloc/home_detail/data/respositories/post_detail_repository.dart';
+import 'package:learn_bloc/feature/home/business_logic/post_cubit.dart';
+import 'package:learn_bloc/feature/home/presentation/screens/home_screen.dart';
+import 'package:learn_bloc/feature/home_detail/business_logic/post_detail_cubit.dart';
 import 'locator.dart' as locator;
 
 void main() {
